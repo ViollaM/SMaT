@@ -1,5 +1,5 @@
 //
-//  main.cpp
+//  seriall.c
 //  Task2
 //
 //  Created by Маргарита Яковлева on 10.11.2023.
@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <math.h>
+#include <time.h>
 
 static double delta = 0.000001;
 static int N = 40, M = 40;
@@ -17,8 +18,8 @@ struct point {
     double x;
     double y;
 };
-static struct point A = {-2.0, -2.0};
-static struct point B = {2.0, 1.1};
+static struct point A = {-3.0, -3.0};
+static struct point B = {3.0, 2.0};
 
 struct grid {
     double h1;
@@ -268,8 +269,7 @@ void start() {
     } while (current_delta > delta);
     delta_time = clock() - start_time;
     fprintf(stderr, "time: %lf\n", (double)delta_time / (double)CLOCKS_PER_SEC);
-
-    export_data(sch->w);
+//    export_data(sch->w);
     free_memory(sch);
 }
 

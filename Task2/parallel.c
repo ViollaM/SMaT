@@ -1,5 +1,5 @@
 //
-//  main.cpp
+//  parallel.c
 //  Task2
 //
 //  Created by Маргарита Яковлева on 10.11.2023.
@@ -18,8 +18,8 @@ struct point {
     double x;
     double y;
 };
-static struct point A = {-2.0, -2.0};
-static struct point B = {2.0, 1.1};
+static struct point A = {-3.0, -3.0};
+static struct point B = {3.0, 2.0};
 
 struct grid {
     double h1;
@@ -273,10 +273,7 @@ void start() {
         sch->w = sch->w_next;
         sch->w_next = tmp;
     } while (current_delta > delta);
-    delta_time = omp_get_wtime() - start_time;
-    fprintf(stderr, "time: %lf\n", delta_time);
-
-    export_data(sch->w);
+    fprintf(stderr, "time: %lf\n", omp_get_wtime() - start_time);
     free_memory(sch);
 }
 

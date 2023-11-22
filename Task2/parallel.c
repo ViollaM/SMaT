@@ -18,8 +18,8 @@ struct point {
     double x;
     double y;
 };
-static struct point A = {-3.0, -3.0};
-static struct point B = {3.0, 2.0};
+static struct point A = {-2.5, -2.5};
+static struct point B = {2.5, 1.5};
 
 struct grid {
     double h1;

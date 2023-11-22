@@ -1,0 +1,5 @@
+**/*.txt
+*.txt
+Task2/Task2*
+.DS_Store
+**/.DS_Store

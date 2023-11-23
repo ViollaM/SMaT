@@ -249,6 +249,27 @@ void free_memory(struct scheme *sch)
     free(sch);
 }
 
+double l1_norm(struct grid *g) {
+    double res = -1.0;
+    for (int i = 0; i <= M; i++) {
+        for (int j = 0; j <= N; j++) {
+            double module = fabs(g->values[i][j]);
+            res = res < module ? module : res;
+        }
+    }
+    return res;
+}
+
+double l2_norm(struct grid *g) {
+    double res = -0.0;
+    for (int i = 0; i <= M; i++) {
+        for (int j = 0; j <= N; j++) {
+            res += pow(g->values[i][j], 2);
+        }
+    }
+    return sqrt(res);
+}
+
 void start() {
     struct scheme *sch = init_scheme();
     struct grid *tmp, *w_delta = init_grid(0);
